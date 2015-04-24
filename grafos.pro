@@ -18,3 +18,6 @@ SOURCES += main.cpp\
 HEADERS  += grafo.h
 
 FORMS    += grafo.ui
+
+DISTFILES += \
+    grafo1.gr
