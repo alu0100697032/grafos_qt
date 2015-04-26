@@ -38,7 +38,8 @@ public:
     explicit Grafo(QWidget *parent = 0);
     ~Grafo();
 
-    QString cargarGrafo(QString nombrefichero);
+    int cargarGrafo(QString nombrefichero);
+    int actualizar(QString nombrefichero);
     unsigned Es_dirigido(); //devuelve 0 si el grafo es no dirigido y 1 si es dirigido
     void Info_Grafo();
     void Mostrar_Lista_Sucesores();
@@ -48,13 +49,31 @@ public:
     void ComponentesConexas();
 
 private slots:
-    void on_pushButton_clicked();
 
-    void on_pushButton_5_clicked();
+    void on_actionGrafo1_gr_triggered();
+
+    void on_actionGrafo2_gr_triggered();
+
+    void on_actionGrafo3_gr_triggered();
+
+    void on_actionGrafo4_gr_triggered();
+
+    void on_actionGrafo5_gr_triggered();
+
+    void on_actionGrafo6_gr_triggered();
+
+    void on_actionGrafo7_gr_triggered();
+
+    void on_actionGrafo8_gr_triggered();
+
+    void on_actionGrafo9_gr_2_triggered();
+
+    void on_actionInformaci_n_del_grafo_triggered();
 
 private:
     Ui::Grafo *ui;
 
+    bool cargado = false;
     unsigned numero_nodos;         // numero de NODOS //
     unsigned numero_arcos;         // numero de ARCOS //
     unsigned dirigido;  //0 si el grafo es no dirigido y 1 si es dirigido
