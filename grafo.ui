@@ -52,45 +52,6 @@
      <string>Estado del fichero: </string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>20</y>
-      <width>91</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Cargar grafo 2</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>20</y>
-      <width>91</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Cargar grafo 4</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_4">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>20</y>
-      <width>91</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Cargar grafo 3</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
@@ -127,6 +88,40 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuOpciones">
+    <property name="title">
+     <string>Cargar grafos</string>
+    </property>
+    <widget class="QMenu" name="menuDirigidos">
+     <property name="title">
+      <string>Dirigidos</string>
+     </property>
+     <addaction name="actionGrafo1_gr"/>
+     <addaction name="actionGrafo2_gr"/>
+     <addaction name="actionGrafo5_gr"/>
+     <addaction name="actionGrafo6_gr"/>
+    </widget>
+    <widget class="QMenu" name="menuNo_dirigidos">
+     <property name="title">
+      <string>No dirigidos</string>
+     </property>
+     <addaction name="actionGrafo3_gr"/>
+     <addaction name="actionGrafo4_gr"/>
+     <addaction name="actionGrafo7_gr"/>
+     <addaction name="actionGrafo8_gr"/>
+     <addaction name="actionGrafo9_gr_2"/>
+    </widget>
+    <addaction name="menuDirigidos"/>
+    <addaction name="separator"/>
+    <addaction name="menuNo_dirigidos"/>
+   </widget>
+   <widget class="QMenu" name="menuInformaci_n_del_grafo">
+    <property name="title">
+     <string>Información del grafo</string>
+    </property>
+   </widget>
+   <addaction name="menuOpciones"/>
+   <addaction name="menuInformaci_n_del_grafo"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -135,8 +130,59 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="separator"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionFghfgh">
+   <property name="text">
+    <string>fghfgh</string>
+   </property>
+  </action>
+  <action name="actionGrafo1_gr">
+   <property name="text">
+    <string>grafo1.gr</string>
+   </property>
+  </action>
+  <action name="actionGrafo2_gr">
+   <property name="text">
+    <string>grafo2.gr</string>
+   </property>
+  </action>
+  <action name="actionGrafo3_gr">
+   <property name="text">
+    <string>grafo3.gr</string>
+   </property>
+  </action>
+  <action name="actionGrafo4_gr">
+   <property name="text">
+    <string>grafo4.gr</string>
+   </property>
+  </action>
+  <action name="actionGrafo5_gr">
+   <property name="text">
+    <string>grafo5.gr</string>
+   </property>
+  </action>
+  <action name="actionGrafo6_gr">
+   <property name="text">
+    <string>grafo6.gr</string>
+   </property>
+  </action>
+  <action name="actionGrafo7_gr">
+   <property name="text">
+    <string>grafo7.gr</string>
+   </property>
+  </action>
+  <action name="actionGrafo8_gr">
+   <property name="text">
+    <string>grafo8.gr</string>
+   </property>
+  </action>
+  <action name="actionGrafo9_gr_2">
+   <property name="text">
+    <string>grafo9.gr</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
