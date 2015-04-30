@@ -4,7 +4,10 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QTextStream>
+#include <QtCore/qmath.h>
 #include <QCoreApplication>
+#include <QGraphicsView>
+#include <QGraphicsScene>
 #include <QVector>
 #include <QMap>
 #include <stdio.h>
@@ -48,6 +51,9 @@ public:
     void dfs(unsigned i, QVector<bool> &visitado);
     void ComponentesConexas();
 
+    //pintar
+    void pintarGrafo();
+
 private slots:
 
     void on_actionGrafo1_gr_triggered();
@@ -68,10 +74,13 @@ private slots:
 
     void on_actionGrafo9_gr_2_triggered();
 
-    void on_actionInformaci_n_del_grafo_triggered();
+    void on_actionInfoGrafo_triggered();
+
+    void on_actionPintarGrafo_triggered();
 
 private:
     Ui::Grafo *ui;
+    QGraphicsScene *escena;
 
     bool cargado = false;
     unsigned numero_nodos;         // numero de NODOS //

@@ -39,6 +39,16 @@
      <string/>
     </property>
    </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>581</width>
+      <height>261</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -80,7 +90,8 @@
     <property name="title">
      <string>Opciones</string>
     </property>
-    <addaction name="actionInformaci_n_del_grafo"/>
+    <addaction name="actionInfoGrafo"/>
+    <addaction name="actionPintarGrafo"/>
    </widget>
    <addaction name="menuOpciones"/>
    <addaction name="menuInformaci_n_del_grafo"/>
@@ -143,9 +154,14 @@
     <string>grafo9.gr</string>
    </property>
   </action>
-  <action name="actionInformaci_n_del_grafo">
+  <action name="actionInfoGrafo">
    <property name="text">
     <string>Información del grafo</string>
+   </property>
+  </action>
+  <action name="actionPintarGrafo">
+   <property name="text">
+    <string>Pintar  grafo</string>
    </property>
   </action>
  </widget>

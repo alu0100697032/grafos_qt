@@ -6,6 +6,8 @@ Grafo::Grafo(QWidget *parent) :
     ui(new Ui::Grafo)
 {
     ui->setupUi(this);
+    ui->actionInfoGrafo->setEnabled(false);
+    ui->actionPintarGrafo->setEnabled(false);
 }
 
 Grafo::~Grafo()
@@ -49,6 +51,8 @@ int Grafo::cargarGrafo(QString nombrefichero){
             }
         }
     }
+    ui->actionInfoGrafo->setEnabled(true);
+    ui->actionPintarGrafo->setEnabled(true);
     return 1;
 }
 
@@ -129,9 +133,57 @@ void Grafo::Info_Grafo() {
                          nodos + "\nNúmero de arcos: \t" + arcos + "\n" + tipo);
 }
 
-/*
- * EVENTOS
- */
+/****************************************************************************************
+ ************************************** PINTAR ******************************************
+ ****************************************************************************************/
+
+void Grafo::pintarGrafo(){
+    int nodosPorFila = qSqrt(numero_nodos);
+    int radioNodo = 40;
+    int centroNodo = radioNodo/2;
+    int separacionEntreNodos = 50;
+    int posicionX = 0;
+    int posicionY = 0;
+    int distancia = radioNodo+separacionEntreNodos;
+    int nodosAgregadosFila = 0;
+    QVector<int> coordenadasXNodo;
+    QVector<int> coordenadasYNodo;
+
+    escena = new QGraphicsScene(this);
+    ui->graphicsView->setScene(escena);
+
+    //pintar nodos
+    for(int i = 0; i < numero_nodos; i++){
+        if(nodosPorFila > nodosAgregadosFila){
+            nodosAgregadosFila++;
+            escena->addEllipse(posicionX,posicionY,radioNodo,radioNodo);
+            coordenadasXNodo.push_back(posicionX);
+            coordenadasYNodo.push_back(posicionY);
+            posicionX+= distancia;
+        }else{
+            nodosAgregadosFila = 1;
+            posicionX = 0;
+            posicionY+=distancia;
+            escena->addEllipse(posicionX,posicionY,radioNodo,radioNodo);
+            coordenadasXNodo.push_back(posicionX);
+            coordenadasYNodo.push_back(posicionY);
+            posicionX+=distancia;
+        }
+    }
+    //pintar arcos
+    for(int i = 0; i < LSucesores.size(); i++){
+        for(int j = 0; j < LSucesores[i].size(); j++){
+            escena->addLine(coordenadasXNodo[i]+(radioNodo/2), coordenadasYNodo[i]+(radioNodo/2),
+                        coordenadasXNodo[LSucesores[i][j].nodo]+(radioNodo/2),
+                        coordenadasYNodo[LSucesores[i][j].nodo]+(radioNodo/2));
+        }
+    }
+}
+
+/****************************************************************************************
+ ************************************** EVENTOS******************************************
+ ****************************************************************************************/
+
 void Grafo::on_actionGrafo1_gr_triggered()
 {
     QString path = QCoreApplication::applicationDirPath();
@@ -312,7 +364,12 @@ void Grafo::on_actionGrafo9_gr_2_triggered()
     }
 }
 
-void Grafo::on_actionInformaci_n_del_grafo_triggered()
+void Grafo::on_actionInfoGrafo_triggered()
 {
     Info_Grafo();
+}
+
+void Grafo::on_actionPintarGrafo_triggered()
+{
+    pintarGrafo();
 }
